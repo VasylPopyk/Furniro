@@ -1,0 +1,40 @@
+.cart_info{
+    padding: 60px 0;
+    @include flex(row, flex-start, space-between, nowrap);
+    .cart_info_content{
+        width: 100%;
+        @include flex(column, flex-start, center, nowrap);
+        .cart_info_content_item{
+            padding: 30px 0;
+            width: 100%;
+            @media(max-width: 1286px){flex-wrap: wrap; p, input, button{margin: 10px;}}
+            @include flex(row, center, space-between, nowrap);
+            img{width: 108px;height: auto; background-color: #b88f2f31; border-radius: 5px;}
+            p{@include font(16px, 'Montserrat', 600, #9F9F9F, 16px);}
+            input{height: 32px; width: 80px;border-radius: 5px; outline: none; border: 1px solid black;@include font(16px, 'Montserrat', 500, black, 16px);}
+            button{cursor: pointer; background-color: transparent; border: none;img{width: 28px;height: 28px; background-color: transparent;}}
+        }
+    }
+    .cart_info_totals{
+        width: 393px;
+        height: 390px;
+        background-color: #b88f2f30;
+        @include flex(column, center, flex-start, nowrap);
+        h1{@include font(32px, 'Montserrat', 700, black, 32px)}
+        div{@include flex(row, flex-end, space-between, nowrap); width: 250px;h3{@include font(16px, 'Montserrat', 600, black, 16px)} p{
+            @include font(16px, 'Montserrat', 600, #9F9F9F, 16px);
+            &.total{color: #B88E2F; font-size: 20px;}
+        }}
+        button{
+            width: 222px;
+            height: 58px;
+            @include font(20px, 'Montserrat', 500, black, 20px);
+            border-radius: 20px;
+            background-color: transparent;
+            border: 1px solid black;
+            margin: 40px 0;
+            cursor: pointer;
+        }
+    }
+    @media(max-width: 1286px){flex-wrap: wrap; justify-content: center;}
+}

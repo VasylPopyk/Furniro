@@ -1,0 +1,352 @@
+@import "../mixins/mixins";
+a{
+    position: relative;
+    top: 0;
+    left: 0;
+    &::after{
+        content: "";
+        width: 100%;
+        height: 1px;
+        border-radius: 0.5px;
+        background-color: #3A3A3A;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        transition: all 0.7s ease 0s;
+        transform: scale(0);
+    }
+    &:hover &::after{
+        transition: all 0.7s ease 0s;
+        transform: scale(1);
+    }
+}
+.page{
+    .banner{
+        width: 100%;
+        height: 94vh;
+        position: relative;
+        top: -68px;
+        .banner_content{
+            position: absolute;
+            top: 27%;
+            left: 50%;
+            z-index: 9;
+            width: 643px;
+            height: 443px;
+            padding: 40px;
+            padding-top: 63px;
+            background-color: #FFF3E3;
+            border-radius: 10px;
+            h3{@include font(16px, "Montserrat", 700, black, 0px); letter-spacing: 3px;}
+            h1{@include font(52px, "Montserrat", 700, #B88E2F, 52px);}
+            p{@include font(18px, "Montserrat", 400, black, 24px);margin-top: -30px;}
+            button{
+                margin-top: 46px;
+                width: 222px;
+                height: 74px;
+                background-color: #B88E2F;
+                @include font(16px, "Montserrat", 600, white, 0px);
+                text-transform: uppercase;
+                border: none;
+                transition: all 0.7s ease 0s;
+                &:hover{transition: all 0.7s ease 0s;background-color: transparent;color: #B88E2F; border: 0.25px solid #B88E2F; cursor: pointer;}
+            }
+        }
+        img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 900px;
+            object-fit: cover;
+            object-position: center;
+        }
+        @media(max-width: 1440px){
+            .banner_content{
+                left: 50%;
+                width: 520px;
+                height: 360px;
+            }
+        }
+        @media(max-width: 1200px){
+            .banner_content{
+                left: 47%;
+                width: 480px;
+                height: 340px;
+            }
+        }
+        @media(max-width: 1050px){
+            .banner_content{
+                left: 45%;
+                width: 450px;
+                height: 320px;
+                h3{font-size: 14px;}
+                h1{font-size: 40px;}
+                p{font-size: 16px;}
+                button{width: 170px;height: 50px;margin-top: 30px;}
+            }
+        }
+        @media(max-width: 990px){
+            .banner_content{
+                left: 28%;
+                width: 400px;
+                height: 280px;
+                h3{font-size: 14px;}
+                h1{font-size: 40px;}
+                p{font-size: 16px;}
+                button{width: 150px;height: 36px;margin-top: 20px;}
+            }
+        }
+        @media(max-width: 680px){
+            .banner_content{
+                left: 18%;
+            }
+        }
+        @media(max-width: 580px){
+            .banner_content{
+                left: 5%;
+            }
+        }
+        @media(max-width: 500px){
+            .banner_content{
+                left: 5%;
+                width: 70%;
+                height: 50%;
+                h3{font-size: 14px;}
+                h1{font-size: 28px; line-height: 45px;}
+                p{font-size: 16px;}
+                button{width: 170px;height: 50px;margin-top: 30px;}
+            }
+        }
+    }
+    .range{ 
+        .range_header{
+            @include flex(column, center, center, nowrap);
+            h1{@include font(32px, "Montserrat", 700, black, 36px);}
+            p{@include font(20px, "Montserrat", 400, black, 24px); br{display: none;}}
+        }
+        .range_content{
+            width: 100%;
+            margin-top: 62px;
+            @include flex(row, center, center, nowrap);
+            .range_item{
+                width: 380px;
+                &:not(:last-child){
+                    margin-right: 20px;
+                }
+                img{ 
+                    width: 100%;
+                    height: auto;
+                    border-radius: 10px;
+                }
+                h3{@include font(24px, "Montserrat", 600, black, 26px); margin: 30px; text-align: center;}
+            }
+        }
+        @media(max-width: 990px){
+            .range_header{margin-top: 40px;}
+        }
+        @media(max-width: 767px){
+            .range_content{
+                flex-direction: column;
+                padding-left: 30px;
+            }
+        }
+        @media(max-width: 580px){
+            .range_header{
+                p{text-align: center; br{display: flex;}}
+            }
+            .range_content{
+                .range_item{
+                    img{
+                        width: 90%;
+                    }
+                }
+            }
+        }
+    }
+    .products {
+        margin-top: 30px;
+        .products_header {
+            h1 {
+                @include font(40px, "Montserrat", 700, black, 42px);
+                text-align: center;
+            }
+        }
+        .products_content {
+            @include flex(column, center, center, nowrap);
+            .products_items {
+                @include flex(row, center, center, wrap);
+                .products_item {
+                    margin: 16px;
+                    width: 285px;
+                    height: 446px;
+                    position: relative;
+                    top: 0;
+                    left: 0;
+                    .products_item_front {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        img {
+                            width: 100%;
+                            height: auto;
+                        }
+                        .products_item_front_text {
+                            width: 100%;
+                            padding: 16px;
+                            @include flex(column, flex-start, flex-start, nowrap);
+                            h3 {
+                                @include font(24px, "Montserrat", 600, black, 0);
+                                margin: 0;
+                                margin-left: 10px;
+                                margin-top: 16px;
+                            }
+                            p {
+                                @include font(16px, "Montserrat", 600, rgba(0, 0, 0, 0.7), 0);
+                                margin-top: 25px;
+                            }
+                            .price {
+                                width: 100%;
+                                margin-top: -10px;
+                                @include flex(row, center, space-between, nowrap);
+                                @include font(20px, "Montserrat", 600, black, 0);
+                                h4 {}
+                                s {
+                                    color: grey;
+                                    font-size: 16px;
+                                    font-weight: 400;
+                                }
+                            }
+                        }
+                    }
+                    &:hover .products_item_nav {
+                        display: flex;
+                        opacity: 100%;
+                        transition: all 0.5s ease 0s;
+                        cursor: pointer;
+                    }
+                    .products_item_nav {
+                        opacity: 0;
+                        transition: all 0.5s ease 0s;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0, 0, 0, 0.7);
+                        @include flex(column, center, center, nowrap);
+                        display: none;
+                        button {
+                            width: 202px;
+                            height: 48px;
+                            border: none;
+                            background-color: white;
+                            @include font(16px, "Montserrat", 700, #B88E2F, 0);
+                            transition: all 0.7s ease 0s;
+                            &:hover{
+                                color: white;
+                                background-color: #B88E2F;
+                                transition: all 0.7s ease 0s;
+                            }
+                        }
+                        nav {
+                            margin-top: 16px;
+                            width: 100%;
+                            padding: 8px;
+                            @include flex(row, center, center, nowrap);
+                            a {
+                                @include flex(row, center, center, nowrap);
+                                margin: 8px;
+                                @include font(16px, "Montserrat", 500, white, 0);
+                                text-decoration: none;
+                                img {
+                                    margin: 4px;
+                                }
+                            }
+                        }
+                    }
+                    .products_item_action {
+                        position: absolute;
+                        top: 24px;
+                        right: 24px;
+                        border-radius: 50%;
+                        width: 48px;
+                        height: 48px;
+                        background-color: #E97171;
+                        @include flex(row, center, center, nowrap);
+                        @include font(16px, "Montserrat", 500, white, 0);
+                        &.new {
+                            background-color: #2EC1AC;
+                        }
+                    }
+                }
+            }
+            .products_button {
+                width: 245px;
+                height: 48px;
+                border: 1px solid #B88E2F;
+                background-color: white;
+                margin-bottom: 20px;
+                @include font(16px, "Montserrat", 700, #B88E2F, 0);
+                transition: all 0.7s ease 0s;
+                &:hover {
+                    transition: all 0.7s ease 0s;
+                    background-color: #B88E2F;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    
+    .share{
+        @include flex(column, center, center, nowrap);
+        .share_head{
+            h3{@include font(20px, "Montserrat", 700, #616161, 0); text-align: center;}
+            h1{@include font(40px, "Montserrat", 700, #3A3A3A, 120%); text-align: center;}
+        }
+        .share_content{
+            width: 100%;
+            @include flex(row, center, center, nowrap);
+            .share_galery{
+                img{margin: 8px;}
+                .share_galery_bottom_row{
+                    @include flex(row, bottom, center, nowrap);
+                    img{}
+                }
+                .share_galery_top_row{
+                    @include flex(row, top, center, nowrap);
+                    img{}
+                }
+                &.left{
+                    .share_galery_bottom_row, .share_galery_top_row{justify-content: right;}
+                }
+                &.center{
+                    img{}
+                }
+                &.right{
+                    .share_galery_bottom_row, .share_galery_top_row{justify-content: left;}
+                }
+            }
+            @media(max-width: 1440px){
+                flex-wrap: wrap;
+            }
+            @media(max-width: 580px){
+                .share_galery{
+                    .share_galery_bottom_row, .share_galery_top_row{@include flex(column, center, center, flex-wrap);
+                        img{}
+                    }
+                }
+            }
+            @media(max-width: 480px){
+                .share_galery{
+                    .share_galery_bottom_row, .share_galery_top_row{
+                        img{max-width: 340px;}
+                    }
+                }
+            }
+        }
+    }
+}
